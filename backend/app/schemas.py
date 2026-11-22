@@ -29,3 +29,5 @@ class EntryPayload(BaseModel):
 class ActionPayload(BaseModel):
     action: str
     remark: str | None = None
+    # 动作附带的业务参数（如分区复查的分区、依据类型、参考日期）。
+    params: dict[str, Any] = Field(default_factory=dict)

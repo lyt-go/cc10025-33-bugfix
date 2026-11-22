@@ -73,6 +73,35 @@ def export_entries(
     )
 
 
+@router.get("/quality_report/compare", response_model=dict)
+def compare_quality_reports(
+    ids: str = Query(..., description="报告条目 id，逗号分隔"),
+    reference_date: str | None = Query(default=None),
+) -> dict[str, Any]:
+    """并排比较两份报告的本周分子与分母，核对未扫描资产没有借来的百分比。"""
+    service = require_service("quality_report")
+    try:
+        entry_ids = [int(part) for part in ids.split(",") if part.strip()]
+    except ValueError:
+        raise HTTPException(status_code=400, detail="ids 必须是逗号分隔的报告条目 id")
+    if not entry_ids:
+        raise HTTPException(status_code=400, detail="至少选择一份报告")
+    return service.compare_reports(entry_ids, reference_date=reference_date)
+
+
+@router.get("/quality_report/{entry_id}/accuracy-evidence", response_model=dict)
+def quality_accuracy_evidence(
+    entry_id: int,
+    reference_date: str | None = Query(default=None),
+) -> dict[str, Any]:
+    """按报告关联资产读取扫描证据，返回质量准确率证据明细。"""
+    service = require_service("quality_report")
+    detail = service.get_accuracy_evidence(entry_id, reference_date=reference_date)
+    if detail is None:
+        raise HTTPException(status_code=404, detail=f"质量报告 {entry_id} 不存在")
+    return detail
+
+
 @router.get("/{module}/{entry_id}", response_model=dict)
 def get_entry(module: str, entry_id: int) -> dict[str, Any]:
     service = require_service(module)
@@ -94,5 +123,12 @@ def create_entry(module: str, payload: EntryPayload) -> ActionResult:
 @router.post("/{module}/{entry_id}/actions", response_model=ActionResult)
 def run_action(module: str, entry_id: int, payload: ActionPayload) -> ActionResult:
     service = require_service(module)
-    entry, message = service.run_action(entry_id, payload.action.strip())
+    params = dict(payload.params or {})
+    if payload.remark and "note" not in params:
+        params["note"] = payload.remark
+    if hasattr(service, "run_action_with_params"):
+        entry, message = service.run_action_with_params(
+            entry_id, payload.action.strip(), params)
+    else:
+        entry, message = service.run_action(entry_id, payload.action.strip())
     return ActionResult(ok=entry is not None, message=message, entry=entry)

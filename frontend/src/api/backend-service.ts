@@ -1,6 +1,6 @@
 import { request } from './client'
 import { moduleMeta } from '@/data/modules'
-import type { ActionResult, EntryRow, OverviewResult, PageResult } from '@/data/types'
+import type { AccuracyEvidence, ActionResult, EntryRow, OverviewResult, PageResult } from '@/data/types'
 
 export { moduleMeta }
 
@@ -29,11 +29,22 @@ export async function runAction(
   key: string,
   id: number,
   action: string,
+  params: Record<string, string> = {},
 ): Promise<ActionResult> {
   const response = await request(`/api/${key}/${id}/actions`, {
     method: 'POST',
-    body: JSON.stringify({ action }),
+    body: JSON.stringify({ action, params }),
   })
+  return await response.json()
+}
+
+export async function loadAccuracyEvidence(
+  id: number,
+  referenceDate?: string,
+): Promise<AccuracyEvidence> {
+  const query = referenceDate ? `?reference_date=${encodeURIComponent(referenceDate)}` : ''
+  const response = await request(`/api/quality_report/${id}/accuracy-evidence${query}`)
+  if (!response.ok) throw new Error('质量准确率证据读取失败')
   return await response.json()
 }
 

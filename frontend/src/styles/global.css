@@ -70,3 +70,15 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .analysis-chart { display: flex; align-items: flex-end; gap: 8px; height: 160px; padding: 12px 0; }
 .analysis-bar { flex: 1; border-radius: 4px 4px 0 0; background: var(--brand); min-width: 24px; position: relative; transition: height 0.4s; }
 .analysis-bar span { position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); font-size: 10px; color: var(--muted); white-space: nowrap; }
+
+/* 质量准确率证据明细 */
+.evidence-panel { margin-top: 18px; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+.evidence-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.evidence-head h3 { margin: 0 0 4px; font-size: 15px; }
+.evidence-panel h4 { margin: 16px 0 8px; font-size: 13px; color: #334155; }
+.evidence-conclusion { background: #f1f5f9; border-left: 3px solid var(--brand); padding: 8px 10px; font-size: 13px; border-radius: 4px; }
+.evidence-conflicts ul { margin: 0; padding-left: 18px; font-size: 12px; color: #92400e; }
+.evidence-conflicts li { margin-bottom: 4px; }
+.recheck-form { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin-top: 12px; padding: 12px; background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; }
+.recheck-form label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+.recheck-form select, .recheck-form input { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 13px; min-width: 160px; }

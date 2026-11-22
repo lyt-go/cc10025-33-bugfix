@@ -59,6 +59,12 @@ def all_services() -> list:
     return list(_INSTANCES.values())
 
 
+# 演示用的扫描证据（本周增量 + 上周历史）在服务加载时补齐；已有证据不会被覆盖。
+from app.services import scan_evidence as _scan_evidence  # noqa: E402
+
+_scan_evidence.ensure_seed_evidence()
+
+
 __all__ = [
     "service_for",
     "all_services",

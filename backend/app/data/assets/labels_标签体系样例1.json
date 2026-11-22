@@ -14,5 +14,69 @@
     "confidence": "标签体系样例1",
     "source": "标签体系样例1",
     "activated_at": "2026-11-19T01:42:58.811305+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:19:21.432330+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:43:36.380553+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:43:38.197611+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:48:22.186570+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:48:26.368815+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:48:39.748091+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:51:27.574891+00:00"
+  },
+  {
+    "label_id": "LABE-0001",
+    "label_name": "标签体系样例1",
+    "label_type": "标签体系样例1",
+    "confidence": "标签体系样例1",
+    "source": "标签体系样例1",
+    "activated_at": "2026-11-22T17:52:14.680982+00:00"
   }
 ]

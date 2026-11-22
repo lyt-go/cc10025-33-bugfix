@@ -1,6 +1,7 @@
 {
-  "total_reports": 4,
-  "abnormal_assets": 2,
-  "health_score": "80%",
-  "generated_at": "2026-11-19T01:42:58.811596+00:00"
+  "total_reports": 3,
+  "abnormal_assets": 0,
+  "never_scanned_assets": 1,
+  "health_score": "100%",
+  "generated_at": "2026-11-22T17:52:14.683807+00:00"
 }
